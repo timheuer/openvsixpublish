@@ -24,7 +24,9 @@ runs:
 
         # If no readme URL was specified, default to "<branch_name>/README.md"
         if (-not "${{ inputs.readme }}") {
-            $readmeUrl = "$Env:GITHUB_REF_NAME/README.md"
+          $readmeUrl = "$Env:GITHUB_REF_NAME/README.md"
+        } else {
+          $readmeUrl = "${{ inputs.readme }}"
         }
 
         $repoUrl = "$Env:GITHUB_SERVER_URL/$Env:GITHUB_REPOSITORY/"
